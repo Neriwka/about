@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Lumora</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        /* Buton hover efekti */
+        .btn:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-purple-500 to-orange-400 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-lg w-full text-center">
+        <!-- Logo -->
+        <img src="https://via.placeholder.com/100?text=Lumora" alt="Lumora Logo" class="mx-auto mb-4 animate-fade-in" style="animation-delay: 0.2s;">
+
+        <!-- Başlık -->
+        <h1 id="title" class="text-3xl font-bold text-purple-700 mb-4 animate-fade-in" style="animation-delay: 0.4s;">
+            Help
+        </h1>
+
+        <!-- İçerik -->
+        <p id="content" class="text-gray-700 text-lg mb-6 animate-fade-in" style="animation-delay: 0.6s;">
+            Got stuck? No problem! Lumora lets you turn text into fun videos with ease. Just type your ideas, choose a style, and watch the magic happen! For any questions, reach out to our support.<br><br>
+            Contact: <a href="mailto:ulkarhuseynova12@gmail.com" class="text-purple-500 underline">ulkarhuseynova12@gmail.com</a>
+        </p>
+
+        <!-- Destek Butonu -->
+        <a href="mailto:ulkarhuseynova12@gmail.com" id="support-btn" class="btn inline-block bg-purple-600 text-white px-6 py-2 rounded-full shadow-md animate-fade-in hover:bg-purple-700" style="animation-delay: 0.8s;">
+            Contact Support
+        </a>
+
+        <!-- Dil Değiştirme -->
+        <div class="mt-6">
+            <button id="lang-toggle" class="text-gray-500 underline hover:text-gray-700">
+                Türkçe'ye Geç
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Dil verileri
+        const translations = {
+            en: {
+                title: "Help",
+                content: `Got stuck? No problem! Lumora lets you turn text into fun videos with ease. Just type your ideas, choose a style, and watch the magic happen! For any questions, reach out to our support.<br><br>Contact: <a href="mailto:ulkarhuseynova12@gmail.com" class="text-purple-500 underline">ulkarhuseynova12@gmail.com</a>`,
+                supportBtn: "Contact Support",
+                langToggle: "Türkçe'ye Geç"
+            },
+            tr: {
+                title: "Yardım",
+                content: `Takıldınız mı? Sorun değil! Lumora ile metinlerinizi kolayca eğlenceli videolara dönüştürebilirsiniz. Fikirlerinizi yazın, bir stil seçin ve sihrin gerçekleşmesini izleyin! Sorularınız için destek ekibimize ulaşın.<br><br>İletişim: <a href="mailto:ulkarhuseynova12@gmail.com" class="text-purple-500 underline">ulkarhuseynova12@gmail.com</a>`,
+                supportBtn: "Destekle İletişime Geç",
+                langToggle: "Switch to English"
+            }
+        };
+
+        // Mevcut dil
+        let currentLang = 'en';
+
+        // Dil değiştirme fonksiyonu
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'tr' : 'en';
+            document.getElementById('title').textContent = translations[currentLang].title;
+            document.getElementById('content').innerHTML = translations[currentLang].content;
+            document.getElementById('support-btn').textContent = translations[currentLang].supportBtn;
+            document.getElementById('lang-toggle').textContent = translations[currentLang].langToggle;
+            document.documentElement.lang = currentLang;
+        }
+
+        // Dil değiştirme butonuna olay dinleyici ekle
+        document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+    </script>
+</body>
+</html>
